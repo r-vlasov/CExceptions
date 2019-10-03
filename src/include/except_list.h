@@ -3,8 +3,10 @@
 
 #include <setjmp.h>
 #include <stdlib.h>
+#include <string.h>
+
 struct list_node {
-    jmp_buf* data;
+    jmp_buf data;
     struct list_node* prev;
 };
 
@@ -21,13 +23,13 @@ struct list* list_create() {
     return l;
 }
 
-struct list_node* list_node_create(void* _data) {
+struct list_node* list_node_create(jmp_buf* _data) {
     struct list_node* ret = malloc(sizeof(struct list_node));
-    ret->data = _data;
+    memcpy(&(ret->data), _data, sizeof(jmp_buf));
     return ret;
 }
 
-void list_add (void* _data) {
+void list_add (jmp_buf* _data) {
     struct list_node* ret = list_node_create(_data);
     ret->prev = jmp_list->head;
     jmp_list->head = ret;
@@ -36,13 +38,12 @@ void list_add (void* _data) {
 void list_remove() {
     if (jmp_list->head) {
         struct list_node* tmp = jmp_list->head->prev;
-        free(jmp_list->head->data);
         free(jmp_list->head);
         jmp_list->head = tmp;
     }
 }
 
-struct list_node* list_search(  void* _data ,
+struct list_node* list_search(  jmp_buf _data ,
                                 int *(comparator(void*, void*))) 
 {
     if (jmp_list->head) {
