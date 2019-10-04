@@ -6,7 +6,7 @@ int main()
     exception_init();
     const _cexception ex1 = ex_create();
     const _cexception ex2 = ex_create();
-    const _cexception ex3 = ex_create();
+    const _cexception ex6 = ex_create();
     const _cexception ex4 = ex_create();
 
     try 
@@ -19,7 +19,7 @@ int main()
         try 
         {
             fprintf(stderr, "start\n");
-            throw(ext3);
+            default_throw;
         }
         catch(ext1){
             fprintf(stderr, "1\n");
@@ -29,11 +29,13 @@ int main()
         }
         catch(ext3){
             fprintf(stderr, "%d\n", ext3);
-      //      end_handling;
+            
         }
-        default_catch;
-        
-        throw(ex2);
+        default_catch("MYFIRST");
+
+        fprintf(stderr, "Hello\n");
+        fprintf(stderr, "%d\n", ex2);
+        throw(ex6);
     }
     catch(ex1){
         fprintf(stderr, "1\n");
@@ -41,13 +43,13 @@ int main()
     catch(ex2){
         fprintf(stderr, "2\n");
     }
-    catch(ex3){
-        fprintf(stderr, "3\n");
+    catch(ex6){
+        fprintf(stderr, "6\n");
     }
     catch(ex4){
         fprintf(stderr, "4\n");
     }
-    default_catch;
+    default_catch("MYBAD");
     return 0;
 }
 
