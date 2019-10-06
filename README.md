@@ -3,7 +3,7 @@ Custom Try-Throw-Catch implementation written in C by _setjmp_ and _longjmp_ mec
 
 ## Usage
 
-These exceptions uses C library functions setjmp and longjmp to operate. It can support real-time system (like embedded). It supports to handling ( multi-level try-catch-throw, _see exception.c_);
+These exceptions uses C library functions setjmp and longjmp to operate. It can support real-time system (like embedded). It can handle multi-level try-catch-throw, _see exception.c_
 
 __Handling:__
 '''
@@ -14,6 +14,7 @@ __Handling:__
         if (problem)
             throw(*a*);
     }
+
 '''
 
 ## Limitations
@@ -25,9 +26,9 @@ This library ( _'exception.h'_ ) uses dynamic structure LinkedList ( implement i
 
 ## Intefrace
 
-* **const cexception exc = ex_****create()** - create exception type variable exc (using before try-catch block
-* **try { /* TODO SMTH */  }** - try block
+* **/ const cexception exc = ex_create() /** - create exception type variable exc (using before try-catch block
+* **/ try { /* TODO SMTH */  } /** - try block
 * **throw ( exception )** - throw the exception *exception* from try block. *Exception* should be defined before *try block*
-* **catch ( exception ) { /* TODO SMTH */ }** - catch the exception thrown from try block (*by throw(exception*)
-* **default_****catch (char *string )** - catch exceptions which are not implemented in previous catch-blocks. It prints line *string*. Should be define after *try-catch blocks*
+* **/ catch ( exception ) { /* TODO SMTH */ } /** - catch the exception thrown from try block (*by throw(exception*)
+* **/ default_catch (char *string ) /** - catch exceptions which are not implemented in previous catch-blocks. It prints line *string*. Should be define after *try-catch blocks*
 
