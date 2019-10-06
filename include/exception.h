@@ -7,11 +7,10 @@
 
 static jmp_buf current;
 static int ex_quan = 0;
-static int intry = 0;
+static int global_init = 0;
 #define try \
                         int res = setjmp(current); \
                         int old_quan = ex_quan; \
-                        intry = 1; \
                         if (!res) { list_add(&current); }\
                         if (!res) 
 
@@ -37,13 +36,18 @@ static int intry = 0;
 // Exception handling interface
 typedef int _cexception;
 
+static void exception_init() {
+    jmp_list = list_create();
+}
+
 const _cexception ex_create() {
+    if (!global_init) {
+            exception_init();
+            global_init = 1;
+    }
     const _cexception res = ++ex_quan;
     return res;
 }
 
-void exception_init() {
-    jmp_list = list_create();
-}
 
 #endif 

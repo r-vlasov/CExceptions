@@ -3,7 +3,7 @@
 
 int main()
 {
-    exception_init();
+  //  exception_init();
     const _cexception ex1 = ex_create();
     const _cexception ex2 = ex_create();
     const _cexception ex6 = ex_create();
