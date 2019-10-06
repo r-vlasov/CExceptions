@@ -4,18 +4,18 @@
 int main()
 {
   //  exception_init();
-    const _cexception ex1 = ex_create();
-    const _cexception ex2 = ex_create();
-    const _cexception ex6 = ex_create();
-    const _cexception ex4 = ex_create();
+    const cexception ex1 = ex_create();
+    const cexception ex2 = ex_create();
+    const cexception ex6 = ex_create();
+    const cexception ex4 = ex_create();
 
     try 
     {
         fprintf(stderr, "start\n");
 
-        const _cexception ext1 = ex_create();
-        const _cexception ext2 = ex_create();
-        const _cexception ext3 = ex_create();
+        const cexception ext1 = ex_create();
+        const cexception ext2 = ex_create();
+        const cexception ext3 = ex_create();
         try 
         {
             fprintf(stderr, "start\n");

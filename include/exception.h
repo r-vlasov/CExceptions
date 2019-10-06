@@ -3,7 +3,7 @@
 
 #include <setjmp.h>
 #include <string.h>
-#include "except_list.h"
+#include "exceptlist.h"
 
 static jmp_buf current;
 static int ex_quan = 0;
@@ -34,18 +34,18 @@ static int global_init = 0;
 
 
 // Exception handling interface
-typedef int _cexception;
+typedef int cexception;
 
 static void exception_init() {
     jmp_list = list_create();
 }
 
-const _cexception ex_create() {
+const cexception ex_create() {
     if (!global_init) {
             exception_init();
             global_init = 1;
     }
-    const _cexception res = ++ex_quan;
+    const cexception res = ++ex_quan;
     return res;
 }
 
