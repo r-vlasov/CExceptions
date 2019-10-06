@@ -30,6 +30,7 @@ static int global_init = 0;
 #define end_handling    list_remove();   \
                         if (jmp_list->head) \
                             memcpy(&current, jmp_list->head->data, sizeof(jmp_buf)); \
+                        else free(jmp_list); \
                         ex_quan = old_quan;
 
 
