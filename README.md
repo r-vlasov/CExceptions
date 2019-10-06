@@ -26,9 +26,9 @@ This library ( _'exception.h'_ ) uses dynamic structure LinkedList ( implement i
 
 ## Intefrace
 
-* **/ const cexception exc = ex_create() /** - create exception type variable exc (using before try-catch block
-* **/ try { /* TODO SMTH */  } /** - try block
+* ** const cexception exc = ex_create() ** - create exception type variable *exc* (using before try-catch block
+* ** try { /* TODO SMTH */  } ** - try block
 * **throw ( exception )** - throw the exception *exception* from try block. *Exception* should be defined before *try block*
-* **/ catch ( exception ) { /* TODO SMTH */ } /** - catch the exception thrown from try block (*by throw(exception*)
-* **/ default_catch (char *string ) /** - catch exceptions which are not implemented in previous catch-blocks. It prints line *string*. Should be define after *try-catch blocks*
+* ** catch ( exception ) { /* TODO SMTH */ } ** - catch the exception thrown from try block (*by throw(exception*)
+* ** default_catch (char *string ) ** - catch exceptions which are not implemented in previous catch-blocks. It prints line *string*. Should be define after *try-catch blocks*
 
