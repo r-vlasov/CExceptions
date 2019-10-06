@@ -1,13 +1,13 @@
 # Try-Throw-Catch
-Custom Try-Throw-Catch implementation written in C by 'setjmp' and 'longjmp' mechanisms
+Custom Try-Throw-Catch implementation written in C by _/setjmp_ and _/longjmp_ mechanisms
 
 ## Usage
 
-These exceptions uses C library functions setjmp and longjmp to operate. It can support real-time system (like embedded). It supports to handling ( multi-level try-catch-throw, _/see exception.c);
+These exceptions uses C library functions setjmp and longjmp to operate. It can support real-time system (like embedded). It supports to handling ( multi-level try-catch-throw, _/see exception.c_);
 
-_'Handling:'
+_/Handling:/
 
-'''bash 
+'''bash
 
     void Example(void*) {
         // make _cexception *a* variable
